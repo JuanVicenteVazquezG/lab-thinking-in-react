@@ -30,11 +30,14 @@ class App extends Component {
           filteredList={this.HandleFilteredList}
           visible={this.handleVisibleStock}
         />
-        <div> Name product </div>
+        <div className="productList">
+          {" "}
+          <div className="name">Name</div>{" "}
+          <div className="product">product</div>{" "}
+        </div>
         {filteredList.map((element, index) => {
           return (
             <div key={index}>
-              {console.log(this.state.visibleStock)}
               <ProductList
                 product={element}
                 visibleStock={this.state.visibleStock}

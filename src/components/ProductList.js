@@ -9,10 +9,12 @@ export default class ProductList extends Component {
 
     return (
       <div className={!visibleStock && !stocked && "hide"}>
-        <p>
-          <span className={!stocked && "red"}>{name}</span>
-          {price}>
-        </p>
+        <div className="productList">
+          <div className="name">
+            <span className={!stocked && "red"}>{name}</span>
+          </div>
+          <div className="product">{price}</div>
+        </div>
       </div>
     );
   }

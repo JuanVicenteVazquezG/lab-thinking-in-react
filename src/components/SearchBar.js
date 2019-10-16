@@ -10,7 +10,7 @@ export default class Searchbar extends Component {
   };
 
   handleCheckedChange = () => {
-       this.props.visible();
+    this.props.visible();
   };
 
   handleFilteredList = () => {
@@ -27,20 +27,28 @@ export default class Searchbar extends Component {
 
     return (
       <div>
-        <label htmlFor="product">Search</label>
-        <input
-          placeholder="...Introduce your product"
-          type="product"
-          name="product"
-          value={product}
-          onChange={this.handleChange}
-        />
-        <input
-          className="ios_toggle"
-          type="checkbox"
-          onChange={this.handleCheckedChange}
-        />
-        <h3>Only Show Product in stock(checklist)</h3>
+        <div className="searchbar">
+          <label htmlFor="product">Search</label>
+          <input
+            placeholder="...Introduce your product."
+            type="product"
+            name="product"
+            value={product}
+            onChange={this.handleChange}
+          />
+        </div>
+
+        <div className="checking">
+          <label htmlFor="checking">
+            Only Show Product in stock(checklist)
+          </label>
+          <input
+            className="ios_toggle"
+            type="checkbox"
+            name="checking"
+            onChange={this.handleCheckedChange}
+          />
+        </div>
       </div>
     );
   }
