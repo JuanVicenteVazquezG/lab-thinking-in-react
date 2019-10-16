@@ -9,9 +9,9 @@ export default class Searchbar extends Component {
     this.setState({ [e.target.name]: e.target.value }, this.handleFilteredList);
   };
 
-  handleCheckedChange = e =>{
-    this.props.visible(e.target.checked);
-  }
+  handleCheckedChange = () => {
+       this.props.visible();
+  };
 
   handleFilteredList = () => {
     const { stock, filteredList } = this.props;
@@ -19,7 +19,6 @@ export default class Searchbar extends Component {
     const filterList = stock.filter(element => {
       return element.name.toLowerCase().indexOf(product.toLowerCase()) !== -1;
     });
-    console.log(filterList);
     filteredList([...filterList]);
   };
 
@@ -39,7 +38,6 @@ export default class Searchbar extends Component {
         <input
           className="ios_toggle"
           type="checkbox"
-          
           onChange={this.handleCheckedChange}
         />
         <h3>Only Show Product in stock(checklist)</h3>
