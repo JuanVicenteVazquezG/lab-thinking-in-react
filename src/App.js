@@ -7,21 +7,33 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    stock: [data],
-    filteredList:[]
+    stock: data.data,
+    filteredList: data.data,
+    visibleStock:true,
   };
 
-  HandleFilteredList = (products)=>{
 
+  HandleFilteredList = list => {
+    this.setState({ filteredList: [...list] });
+  };
+
+  handleVisibleStock = (newState) =>{
+    this.setState({visibleStock: newState});
   }
   render() {
-    const { stock } = this.state;
+    const { stock, filteredList } = this.state;
     return (
       <div className="App">
         <h1>IronStore</h1>
-        <h2>Search Bar</h2>
-        <SearchBar stock={stock} filteredList={this.HandleFilteredList}/>
-        <ProductList />
+        <SearchBar stock={stock} filteredList={this.HandleFilteredList} visible={this.handleVisibleStock} />
+        <div> Name product </div>
+        {filteredList.map((element, index) => {
+          return (
+            <div key={index}>
+              <ProductList product={element}  />
+            </div>
+          );
+        })}
       </div>
     );
   }
